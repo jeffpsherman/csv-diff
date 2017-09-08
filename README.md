@@ -1,7 +1,11 @@
 # csv-diff
 Examples on how to diff csv files.
 
-In the directory `exmaples`, there are two files `file-newer.csv` and `file-older.csv`
+In the directory `exmaples`, there are two files `file-newer.csv` and `file-older.csv`.
+
+They are about 35,000 lines each and represent two different versions of a product pricelist.
+
+## Basic diff
 
 You can do a basic diff of these two files like this:
 
@@ -38,6 +42,14 @@ Which will produce about 4,000 lines like this:
 > "ZURC","ZURZ1996SFHDLRK","Handle Assy",10.50,"0.6000 ",6.30,0.00,0.00,0.00,0.00,0.00,6.30
 ```
 
-## Breaking it down:
 The first character `>`/`<` indicate that the line is present in one file but not the other.
+
+### Saving our results
+
+It's not super useful to print 4,000 lines of text to your console, so you should redirect the output to a file.  That looks like this:
+```bash
+diff examples/file-newer.csv examples/file-older.csv > examples/differences.txt
+```
+
+The additional part ` > examples/differences.txt` tells the console to send the text that would have gone to the screen to a file instead.  This way you can review the results in a text editor.
 
