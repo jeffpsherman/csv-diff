@@ -59,3 +59,16 @@ diff examples/file-newer.csv examples/file-older.csv > examples/differences.txt
 
 The additional part ` > examples/differences.txt` tells the console to send the text that would have gone to the screen to a file instead.  This way you can review the results in a text editor.
 
+## Lines in one file that aren't in the other
+
+An alternative method is to create new files that contain the lines that aren't found in the other file.
+
+```bash
+comm -23 examples/file-newer.csv examples/file-older.csv > examples/only-newer.csv
+comm -23 examples/file-older.csv examples/file-newer.csv > examples/only-older.csv
+```
+
+This results in two new files, `only-newer.csv` will contain all the lines in `file-newer.csv` that don't exist in `file-older.csv`.
+`only-older.csv` is the opposite.
+
+You can do an effective delete/update/add opperation by deleting everything in `only-older.csv`, and then adding everything in `only-newer.csv`  
