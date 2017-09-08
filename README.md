@@ -44,6 +44,12 @@ Which will produce about 4,000 lines like this:
 
 The first character `>`/`<` indicate that the line is present in one file but not the other.
 
+For example, this line:
+```bash
+> "ZURC","ZUR59454001","Red Hdle Index",0.45,"0.6000 ",0.27,0.00,0.00,0.00,0.00,0.00,0.27
+```
+is in the old file, but not the new one.
+
 ### Saving our results
 
 It's not super useful to print 4,000 lines of text to your console, so you should redirect the output to a file.  That looks like this:
